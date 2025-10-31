@@ -1,0 +1,15 @@
+{
+  "name": "stb.c",
+  "version": "2.17.0",
+  "description": "stb single-file public domain libraries for C/C++; Sean Barrett (2014).",
+  "keywords": ["c", "library", "stb", "image", "font", "audio", "video"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/stb.c.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nodef/stb.c/issues"
+  },
+  "homepage": "https://github.com/nodef/stb.c#readme"
+}

@@ -3,7 +3,7 @@
 stb
 ===
 
-single-file public domain (or MIT licensed) libraries for C/C++
+single-file public domain (or MIT licensed) libraries for C/C++, by [Sean Barrett](https://github.com/nothings).
 
 # This project discusses security-relevant bugs in public in Github Issues and Pull Requests, and it may take significant time for security fixes to be implemented or merged. If this poses an unreasonable risk to your project, do not use stb libraries.
 
@@ -50,6 +50,47 @@ Total lines of C code: 51137
 
 FAQ
 ---
+
+#### How do I install?
+
+Run:
+```bash
+$ npm i stb.c
+```
+
+And then include `stb_ds.h`, and others, as follows:
+```c
+#include "node_modules/stb.c/stb_c_lexer.h"
+#include "node_modules/stb.c/stb_connected_components.h"
+#include "node_modules/stb.c/stb_divide.h"
+#include "node_modules/stb.c/stb_ds.h"
+#include "node_modules/stb.c/stb_dxt.h"
+#include "node_modules/stb.c/stb_easy_font.h"
+#include "node_modules/stb.c/stb_herringbone_wang_tile.h"
+#include "node_modules/stb.c/stb_hexwave.h"
+#include "node_modules/stb.c/stb_image.h"
+#include "node_modules/stb.c/stb_image_resize2.h"
+#include "node_modules/stb.c/stb_image_write.h"
+#include "node_modules/stb.c/stb_include.h"
+#include "node_modules/stb.c/stb_leakcheck.h"
+#include "node_modules/stb.c/stb_perlin.h"
+#include "node_modules/stb.c/stb_rect_pack.h"
+#include "node_modules/stb.c/stb_sprintf.h"
+#include "node_modules/stb.c/stb_textedit.h"
+#include "node_modules/stb.c/stb_tilemap_editor.h"
+#include "node_modules/stb.c/stb_voxel_render.h"
+```
+
+You may also want to include `stb_vorbis.c` as follows:
+```c
+#ifndef __STB_C__
+#define __STB_C__
+#include "node_modules/stb.c/stb_vorbis.c"
+#endif
+```
+
+This will include both the function declaration and their definitions into a single file.
+
 
 #### What's the license?
 

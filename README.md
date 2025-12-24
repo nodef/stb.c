@@ -3,24 +3,25 @@
 stb
 ===
 
-single-file public domain (or MIT licensed) libraries for C/C++, by [Sean Barrett](https://github.com/nothings).
+Single-file public domain (or MIT licensed) libraries for C/C++, by [Sean Barrett](https://github.com/nothings).
 
-# This project discusses security-relevant bugs in public in Github Issues and Pull Requests, and it may take significant time for security fixes to be implemented or merged. If this poses an unreasonable risk to your project, do not use stb libraries.
+> [!NOTE]
+> This project discusses security-relevant bugs in public in Github Issues and Pull Requests, and it may take significant time for security fixes to be implemented or merged. If this poses an unreasonable risk to your project, do not use stb libraries.
 
 Noteworthy:
 
-* image loader: [stb_image.h](stb_image.h)
-* image writer: [stb_image_write.h](stb_image_write.h)
-* image resizer: [stb_image_resize2.h](stb_image_resize2.h)
-* font text rasterizer: [stb_truetype.h](stb_truetype.h)
-* typesafe containers: [stb_ds.h](stb_ds.h)
+* Image loader: [stb_image.h](stb_image.h)
+* Image writer: [stb_image_write.h](stb_image_write.h)
+* Image resizer: [stb_image_resize2.h](stb_image_resize2.h)
+* Font text rasterizer: [stb_truetype.h](stb_truetype.h)
+* Typesafe containers: [stb_ds.h](stb_ds.h)
 
 Most libraries by stb, except: stb_dxt by Fabian "ryg" Giesen, original stb_image_resize
 by Jorge L. "VinoBS" Rodriguez, and stb_image_resize2 and stb_sprintf by Jeff Roberts.
 
 <a name="stb_libs"></a>
 
-library    | latest version | category | LoC | description
+Library    | Latest version | Category | LoC | Description
 --------------------- | ---- | -------- | --- | --------------------------------
 **[stb_vorbis.c](stb_vorbis.c)** | 1.22 | audio | 5584 | decode ogg vorbis files from file/memory to float/16-bit signed output
 **[stb_hexwave.h](stb_hexwave.h)** | 0.5 | audio | 680 | audio waveform synthesizer
@@ -47,52 +48,136 @@ library    | latest version | category | LoC | description
 Total libraries: 21
 Total lines of C code: 51137
 
+<br>
 
 FAQ
 ---
 
-#### How do I install?
+### How do I install?
 
 Run:
 ```bash
 $ npm i stb.c
 ```
 
-And then include `stb_ds.h`, and others, as follows:
+And then include `stb.h` as follows:
+
 ```c
-#include "node_modules/stb.c/stb_c_lexer.h"
-#include "node_modules/stb.c/stb_connected_components.h"
-#include "node_modules/stb.c/stb_divide.h"
-#include "node_modules/stb.c/stb_ds.h"
-#include "node_modules/stb.c/stb_dxt.h"
-#include "node_modules/stb.c/stb_easy_font.h"
-#include "node_modules/stb.c/stb_herringbone_wang_tile.h"
-#include "node_modules/stb.c/stb_hexwave.h"
-#include "node_modules/stb.c/stb_image.h"
-#include "node_modules/stb.c/stb_image_resize2.h"
-#include "node_modules/stb.c/stb_image_write.h"
-#include "node_modules/stb.c/stb_include.h"
-#include "node_modules/stb.c/stb_leakcheck.h"
-#include "node_modules/stb.c/stb_perlin.h"
-#include "node_modules/stb.c/stb_rect_pack.h"
-#include "node_modules/stb.c/stb_sprintf.h"
-#include "node_modules/stb.c/stb_textedit.h"
-#include "node_modules/stb.c/stb_tilemap_editor.h"
-#include "node_modules/stb.c/stb_voxel_render.h"
+// main.c
+#define STB_C_LEXER_IMPLEMENTATION
+#define STB_CONNECTED_COMPONENTS_IMPLEMENTATION
+#define STB_DIVIDE_IMPLEMENTATION
+#define STB_DS_IMPLEMENTATION
+#define STB_DXT_IMPLEMENTATION
+#define STB_EASY_FONT_IMPLEMENTATION
+#define STB_HERRINGBONE_WANG_TILE_IMPLEMENTATION
+#define STB_HEXWAVE_IMPLEMENTATION
+#define STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_RESIZE2_IMPLEMENTATION
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#define STB_INCLUDE_IMPLEMENTATION
+#define STB_LEAKCHECK_IMPLEMENTATION
+#define STB_PERLIN_IMPLEMENTATION
+#define STB_RECT_PACK_IMPLEMENTATION
+#define STB_SPRINTF_IMPLEMENTATION
+#define STB_TEXTEDIT_IMPLEMENTATION
+#define STB_TILEMAP_EDITOR_IMPLEMENTATION
+#define STB_TRUETYPE_IMPLEMENTATION
+#define STB_VOXEL_RENDER_IMPLEMENTATION
+#include "node_modules/stb.c/stb.h"
+
+// Or, selectively include individual headers
+// #include "node_modules/stb.c/stb/stb_c_lexer.h"
+// #include "node_modules/stb.c/stb/stb_connected_components.h"
+// #include "node_modules/stb.c/stb/stb_divide.h"
+// #include "node_modules/stb.c/stb/stb_ds.h"
+// #include "node_modules/stb.c/stb/stb_dxt.h"
+// #include "node_modules/stb.c/stb/stb_easy_font.h"
+// #include "node_modules/stb.c/stb/stb_herringbone_wang_tile.h"
+// #include "node_modules/stb.c/stb/stb_hexwave.h"
+// #include "node_modules/stb.c/stb/stb_image_resize2.h"
+// #include "node_modules/stb.c/stb/stb_image_write.h"
+// #include "node_modules/stb.c/stb/stb_image.h"
+// #include "node_modules/stb.c/stb/stb_include.h"
+// #include "node_modules/stb.c/stb/stb_leakcheck.h"
+// #include "node_modules/stb.c/stb/stb_perlin.h"
+// #include "node_modules/stb.c/stb/stb_rect_pack.h"
+// #include "node_modules/stb.c/stb/stb_sprintf.h"
+// #include "node_modules/stb.c/stb/stb_textedit.h"
+// #include "node_modules/stb.c/stb/stb_tilemap_editor.h"
+// #include "node_modules/stb.c/stb/stb_truetype.h"
+// #include "node_modules/stb.c/stb/stb_voxel_render.h"
+
+int main() { /* ... */ }
 ```
 
-You may also want to include `stb_vorbis.c` as follows:
-```c
-#ifndef __STB_C__
-#define __STB_C__
-#include "node_modules/stb.c/stb_vorbis.c"
-#endif
+And then compile with `clang` or `gcc` as usual.
+
+```bash
+$ clang main.c  # or, use gcc
+$ gcc   main.c
 ```
 
-This will include both the function declaration and their definitions into a single file.
+You may also use a simpler approach:
+
+```c
+// main.c
+#define STB_C_LEXER_IMPLEMENTATION
+#define STB_CONNECTED_COMPONENTS_IMPLEMENTATION
+#define STB_DIVIDE_IMPLEMENTATION
+#define STB_DS_IMPLEMENTATION
+#define STB_DXT_IMPLEMENTATION
+#define STB_EASY_FONT_IMPLEMENTATION
+#define STB_HERRINGBONE_WANG_TILE_IMPLEMENTATION
+#define STB_HEXWAVE_IMPLEMENTATION
+#define STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_RESIZE2_IMPLEMENTATION
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#define STB_INCLUDE_IMPLEMENTATION
+#define STB_LEAKCHECK_IMPLEMENTATION
+#define STB_PERLIN_IMPLEMENTATION
+#define STB_RECT_PACK_IMPLEMENTATION
+#define STB_SPRINTF_IMPLEMENTATION
+#define STB_TEXTEDIT_IMPLEMENTATION
+#define STB_TILEMAP_EDITOR_IMPLEMENTATION
+#define STB_TRUETYPE_IMPLEMENTATION
+#define STB_VOXEL_RENDER_IMPLEMENTATION
+#include <stb.h>
+
+// Or, selectively include individual headers
+// #include <stb/stb_c_lexer.h>
+// #include <stb/stb_connected_components.h>
+// #include <stb/stb_divide.h>
+// #include <stb/stb_ds.h>
+// #include <stb/stb_dxt.h>
+// #include <stb/stb_easy_font.h>
+// #include <stb/stb_herringbone_wang_tile.h>
+// #include <stb/stb_hexwave.h>
+// #include <stb/stb_image_resize2.h>
+// #include <stb/stb_image_write.h>
+// #include <stb/stb_image.h>
+// #include <stb/stb_include.h>
+// #include <stb/stb_leakcheck.h>
+// #include <stb/stb_perlin.h>
+// #include <stb/stb_rect_pack.h>
+// #include <stb/stb_sprintf.h>
+// #include <stb/stb_textedit.h>
+// #include <stb/stb_tilemap_editor.h>
+// #include <stb/stb_truetype.h>
+// #include <stb/stb_voxel_render.h>
+
+int main() { /* ... */ }
+```
+
+If you add the path `node_modules/stb.c` to your compiler's include paths.
+
+```bash
+$ clang -I./node_modules/stb.c main.c  # or, use gcc
+$ gcc   -I./node_modules/stb.c main.c
+```
 
 
-#### What's the license?
+### What's the license?
 
 These libraries are in the public domain. You can do anything you
 want with them. You have no legal obligation
@@ -102,7 +187,7 @@ They are also licensed under the MIT open source license, if you have lawyers
 who are unhappy with public domain. Every source file includes an explicit
 dual-license for you to choose from.
 
-#### How do I use these libraries?
+### How do I use these libraries?
 
 The idea behind single-header file libraries is that they're easy to distribute and deploy
 because all the code is contained in a single file. By default, the .h files in here act as
@@ -120,16 +205,16 @@ include stb_image.h regularly, but instead does
 
 The right macro to define is pointed out right at the top of each of these libraries.
 
-#### <a name="other_libs"></a> Are there other single-file public-domain/open source libraries with minimal dependencies out there?
+### <a name="other_libs"></a> Are there other single-file public-domain/open source libraries with minimal dependencies out there?
 
 [Yes.](https://github.com/nothings/single_file_libs)
 
-#### If I wrap an stb library in a new library, does the new library have to be public domain/MIT?
+### If I wrap an stb library in a new library, does the new library have to be public domain/MIT?
 
 No, because it's public domain you can freely relicense it to whatever license your new
 library wants to be.
 
-#### What's the deal with SSE support in GCC-based compilers?
+### What's the deal with SSE support in GCC-based compilers?
 
 stb_image will either use SSE2 (if you compile with -msse2) or
 will not use any SIMD at all, rather than trying to detect the
@@ -145,7 +230,7 @@ the years due to specific versions of gcc breaking what we're doing,
 so we've given up on it. See https://github.com/nothings/stb/issues/280
 and https://github.com/nothings/stb/issues/410 for examples.
 
-#### Some of these libraries seem redundant to existing open source libraries. Are they better somehow?
+### Some of these libraries seem redundant to existing open source libraries. Are they better somehow?
 
 Generally they're only better in that they're easier to integrate,
 easier to use, and easier to release (single file; good API; no
@@ -153,11 +238,11 @@ attribution requirement). They may be less featureful, slower,
 and/or use more memory. If you're already using an equivalent
 library, there's probably no good reason to switch.
 
-#### Can I link directly to the table of stb libraries?
+### Can I link directly to the table of stb libraries?
 
 You can use [this URL](https://github.com/nothings/stb#stb_libs) to link directly to that list.
 
-#### Why do you list "lines of code"? It's a terrible metric.
+### Why do you list "lines of code"? It's a terrible metric.
 
 Just to give you some idea of the internal complexity of the library,
 to help you manage your expectations, or to let you know what you're
@@ -168,7 +253,7 @@ the libraries are probably still meaningful.
 Note though that the lines do include both the implementation, the
 part that corresponds to a header file, and the documentation.
 
-#### Why single-file headers?
+### Why single-file headers?
 
 Windows doesn't have standard directories where libraries
 live. That makes deploying libraries in Windows a lot more
@@ -191,37 +276,43 @@ but the difference between 2 files and 1 file is a big deal.
 You don't need to zip or tar the files up, you don't have to
 remember to attach *two* files, etc.
 
-#### Why "stb"? Is this something to do with Set-Top Boxes?
+### Why "stb"? Is this something to do with Set-Top Boxes?
 
 No, they are just the initials for my name, Sean T. Barrett.
 This was not chosen out of egomania, but as a moderately sane
 way of namespacing the filenames and source function names.
 
-#### Will you add more image types to stb_image.h?
+### Will you add more image types to stb_image.h?
 
 No. As stb_image use has grown, it has become more important
 for us to focus on security of the codebase. Adding new image
 formats increases the amount of code we need to secure, so it
 is no longer worth adding new formats.
 
-#### Do you have any advice on how to create my own single-file library?
+### Do you have any advice on how to create my own single-file library?
 
 Yes. https://github.com/nothings/stb/blob/master/docs/stb_howto.txt
 
-#### Why public domain?
+### Why public domain?
 
 I prefer it over GPL, LGPL, BSD, zlib, etc. for many reasons.
 Some of them are listed here:
 https://github.com/nothings/stb/blob/master/docs/why_public_domain.md
 
-#### Why C?
+### Why C?
 
 Primarily, because I use C, not C++. But it does also make it easier
 for other people to use them from other languages.
 
-#### Why not C99? stdint.h, declare-anywhere, etc.
+### Why not C99? stdint.h, declare-anywhere, etc.
 
 I still use MSVC 6 (1998) as my IDE because it has better human factors
 for me than later versions of MSVC.
 
+<br>
+<br>
+
+
 [![SRC](https://img.shields.io/badge/src-repo-green?logo=Org)](https://github.com/nothings/stb)
+[![ORG](https://img.shields.io/badge/org-nodef-green?logo=Org)](https://nodef.github.io)
+![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/stb.c)

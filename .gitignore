@@ -1,9 +1,7 @@
-# Library files
-stb
-stb.h
-
-# Build directory
+# Build artifacts
 .build/
+*.exe
+output.*
 
 # Logs
 logs

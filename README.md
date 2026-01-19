@@ -56,69 +56,12 @@ FAQ
 ### How do I install?
 
 Run:
+
 ```bash
 $ npm i stb.c
 ```
 
 And then include `stb.h` as follows:
-
-```c
-// main.c
-#define STB_C_LEXER_IMPLEMENTATION
-#define STB_CONNECTED_COMPONENTS_IMPLEMENTATION
-#define STB_DIVIDE_IMPLEMENTATION
-#define STB_DS_IMPLEMENTATION
-#define STB_DXT_IMPLEMENTATION
-#define STB_EASY_FONT_IMPLEMENTATION
-#define STB_HERRINGBONE_WANG_TILE_IMPLEMENTATION
-#define STB_HEXWAVE_IMPLEMENTATION
-#define STB_IMAGE_IMPLEMENTATION
-#define STB_IMAGE_RESIZE2_IMPLEMENTATION
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#define STB_INCLUDE_IMPLEMENTATION
-#define STB_LEAKCHECK_IMPLEMENTATION
-#define STB_PERLIN_IMPLEMENTATION
-#define STB_RECT_PACK_IMPLEMENTATION
-#define STB_SPRINTF_IMPLEMENTATION
-#define STB_TEXTEDIT_IMPLEMENTATION
-#define STB_TILEMAP_EDITOR_IMPLEMENTATION
-#define STB_TRUETYPE_IMPLEMENTATION
-#define STB_VOXEL_RENDER_IMPLEMENTATION
-#include "node_modules/stb.c/stb.h"
-
-// Or, selectively include individual headers
-// #include "node_modules/stb.c/stb/stb_c_lexer.h"
-// #include "node_modules/stb.c/stb/stb_connected_components.h"
-// #include "node_modules/stb.c/stb/stb_divide.h"
-// #include "node_modules/stb.c/stb/stb_ds.h"
-// #include "node_modules/stb.c/stb/stb_dxt.h"
-// #include "node_modules/stb.c/stb/stb_easy_font.h"
-// #include "node_modules/stb.c/stb/stb_herringbone_wang_tile.h"
-// #include "node_modules/stb.c/stb/stb_hexwave.h"
-// #include "node_modules/stb.c/stb/stb_image_resize2.h"
-// #include "node_modules/stb.c/stb/stb_image_write.h"
-// #include "node_modules/stb.c/stb/stb_image.h"
-// #include "node_modules/stb.c/stb/stb_include.h"
-// #include "node_modules/stb.c/stb/stb_leakcheck.h"
-// #include "node_modules/stb.c/stb/stb_perlin.h"
-// #include "node_modules/stb.c/stb/stb_rect_pack.h"
-// #include "node_modules/stb.c/stb/stb_sprintf.h"
-// #include "node_modules/stb.c/stb/stb_textedit.h"
-// #include "node_modules/stb.c/stb/stb_tilemap_editor.h"
-// #include "node_modules/stb.c/stb/stb_truetype.h"
-// #include "node_modules/stb.c/stb/stb_voxel_render.h"
-
-int main() { /* ... */ }
-```
-
-And then compile with `clang` or `gcc` as usual.
-
-```bash
-$ clang main.c  # or, use gcc
-$ gcc   main.c
-```
-
-You may also use a simpler approach:
 
 ```c
 // main.c
@@ -169,11 +112,18 @@ You may also use a simpler approach:
 int main() { /* ... */ }
 ```
 
-If you add the path `node_modules/stb.c` to your compiler's include paths.
+Finally, compile while adding the path `node_modules/stb.c` to your compiler's include paths.
 
 ```bash
 $ clang -I./node_modules/stb.c main.c  # or, use gcc
 $ gcc   -I./node_modules/stb.c main.c
+```
+
+You may also use a simpler approach with the [cpoach](https://www.npmjs.com/package/cpoach.sh) tool, which automatically adds the necessary include paths of all the installed dependencies for your project.
+
+```bash
+$ cpoach clang main.c  # or, use gcc
+$ cpoach gcc   main.c
 ```
 
 
@@ -313,6 +263,7 @@ for me than later versions of MSVC.
 <br>
 
 
+[![](https://raw.githubusercontent.com/qb40/designs/gh-pages/0/image/11.png)](https://wolfram77.github.io)<br>
 [![SRC](https://img.shields.io/badge/src-repo-green?logo=Org)](https://github.com/nothings/stb)
 [![ORG](https://img.shields.io/badge/org-nodef-green?logo=Org)](https://nodef.github.io)
 ![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/stb.c)
